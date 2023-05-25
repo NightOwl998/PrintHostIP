@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: var-app
+  labels:
+    purpose: demonstrate-envars
+spec:
+  containers:
+    - name: envar-demo-container
+      image: nightowl98/vargo:v1.0 
+      env:
+        - name: MY_VARIABLE
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+               
+        
